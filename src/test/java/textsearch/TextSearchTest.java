@@ -49,24 +49,27 @@ public class TextSearchTest {
 		assertEquals(Arrays.asList("hello #world #goodmorning", "hello hello bye bye #cruelworld"),
 				tHistory.getOccurrences("hello"));
 	}
-	
+
 	@Test
 	public void test6() {
 		TweetHistory tHistory = new TweetHistory();
 		tHistory.add("#floccinaucinihilipilification");
-		assertEquals(Arrays.asList("#floccinaucinihilipilification"),
-				tHistory.getOccurrences("floc"));
+		assertEquals(Arrays.asList("#floccinaucinihilipilification"), tHistory.getOccurrences("floc"));
 		assertEquals("#floccinaucinihilipilification", tHistory.getPopularHashtag());
 	}
-	
+
 	@Test
 	public void test7() {
 		TweetHistory tHistory = new TweetHistory();
 		tHistory.add("#floccinaucinihilipilification");
-		assertEquals(Arrays.asList(),
-				tHistory.getOccurrences("flock"));
-		assertEquals(0,
-				tHistory.getNumOccurrences("flock"));
+		assertEquals(Arrays.asList(), tHistory.getOccurrences("flock"));
+		assertEquals(0, tHistory.getNumOccurrences("flock"));
 	}
 
+	@Test
+	public void test8() {
+		TweetHistory tHistory = new TweetHistory();
+		tHistory.add("#");
+		assertEquals("#", tHistory.getPopularHashtag());
+	}
 }

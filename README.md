@@ -132,6 +132,13 @@ public void test7() {
 	assertEquals(0,
 			tHistory.getNumOccurrences("flock"));
 }
+
+@Test
+public void test8() {
+	TweetHistory tHistory = new TweetHistory();
+	tHistory.add("#");
+	assertEquals("#", tHistory.getPopularHashtag());
+}
 ```
 
 ## What Should You Implement / Guidelines
